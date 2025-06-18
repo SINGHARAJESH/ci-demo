@@ -8,7 +8,12 @@ on:
 
 jobs:
   linting:
-    runs-on: ubuntu-latest  # you can also use matrix if needed
+    runs-on: ${{ matrix.os }}  # you can also use matrix if needed
+
+    strategy:
+    matrix:
+      os: [ubuntu-latest,windows-latest,macos-latest]
+
 
     steps:
       - name: Checkout code
